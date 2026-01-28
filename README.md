@@ -1,5 +1,5 @@
-# The social network
-## How to start
+# The social network 
+## How to start 
 1. Создать виртуальное окружение ``` py -3.9 -m venv venv ```
 
     **EN - We use python with version 3.5-3.9 and Django version 2.2.19**
