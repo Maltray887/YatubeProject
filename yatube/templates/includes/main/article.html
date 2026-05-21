@@ -1,0 +1,16 @@
+<article>
+    <ul>
+        <li>
+            Автор: {{ item.author.get_full_name }}
+        </li>
+        <li>
+            Дата: {{ item.pub_date }}
+        </li>
+    </ul>
+    <p>
+        {{ item.text }}
+    </p>
+    {% if item.group and not is_group_page %}
+    <a href="{% url 'posts:group_posts' item.group.slug  %}">все записи группы</a>
+    {% endif %}
+</article>
