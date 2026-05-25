@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 from django.shortcuts import render, get_object_or_404
 
 from .models import Post, Group
@@ -32,3 +33,10 @@ def morning_post_view(request):
     
     return render(request, 'posts/index.html', {'posts':posts})
     
+=======
+from django.shortcuts import render
+from django.http import HttpResponse
+
+def index(request):
+    return HttpResponse('<h1> Index Page </h1>')
+>>>>>>> be3674557d6818f3f9386a83a7f90ff13d410aaa

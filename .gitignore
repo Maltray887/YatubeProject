@@ -21,7 +21,11 @@ sdist/
 var/
 wheels/
 share/python-wheels/
+<<<<<<< HEAD
 *.egg-info/c
+=======
+*.egg-info/
+>>>>>>> be3674557d6818f3f9386a83a7f90ff13d410aaa
 .installed.cfg
 *.egg
 MANIFEST

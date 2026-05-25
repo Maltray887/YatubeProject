@@ -1,4 +1,5 @@
 from django.contrib import admin
+<<<<<<< HEAD
 from .models import Post, Group
 
 
@@ -21,3 +22,7 @@ admin.site.register(Group, GroupAdmin)
 
 
 
+=======
+
+# Register your models here.
+>>>>>>> be3674557d6818f3f9386a83a7f90ff13d410aaa
