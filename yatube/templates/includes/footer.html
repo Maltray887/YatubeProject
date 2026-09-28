@@ -1,4 +1,14 @@
-    <footer class="border-top text-center py-3">
-      <!-- тег span используется для добавления нужных стилей отдельным участкам текста --> 
-      <p>© 2020 Copyright <span style="color:red">Ya</span>tube</p>    
-    </footer>
+
+
+<footer class='border-top text-center py-3'>
+  <p>
+    ©{{current_date.year}} - {{current_date.month_name_ru}},
+    {{current_date.day}} - е число
+  </p>
+  <p><small> Текущая дата (ISO): {{current_date.date_iso}}
+  </small></p>
+  <p>
+    На сайте {{ site_stats.posts_count }} новостей
+    от {{ site_stats.authors_count }} авторов
+  </p>
+</footer>

@@ -1,16 +1,25 @@
 {% extends 'base.html' %}
 {% block title %}
-Последние обновления на сайте
+  Последние обновления на сайте
 {% endblock %}
 {% block content %}
-<!-- класс py-5 создает отступы сверху и снизу блока -->
-<div class="container py-5">
-  <h1>Последние обновления на сайте</h1>
-  {% for post in posts %}
-  {% include 'includes/main/article.html' with item=post %}
-  {% if not forloop.last %}
-  <hr>
-  {% endif %}
-  {% endfor %}
-</div>
+  <!-- класс py-5 создает отступы сверху и снизу блока -->
+  <div class="container py-5">
+    <h1>Последние обновления на сайте</h1>
+    {% for post in page_obj %}
+      {% include 'includes/main/article.html' with item=post %}
+      {% if not forloop.last %}
+        <hr />
+      {% endif %}
+    {% endfor %}
+    {% if page_obj %}
+      <div class = "pagination_info text-muted mb-3">
+        Показанно записей: {{page_obj.star_index}}
+        {{page_obj.end_index}} из {{page_obj.paginator.count}}
+      </div>
+      {% endif %}
+      {% include 'includes/paginator.html'%}
+      {% include 'includes/page_number.html'%}
+  </div>
+  
 {% endblock %}

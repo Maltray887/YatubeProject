@@ -15,7 +15,7 @@ import os
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-<<<<<<< HEAD
+
 LOGIN_URL='users:login'
 LOGIN_REDIRECT_URL='posts:index'
 LOGOUT_REDIRECT_URL='posts:index'
@@ -24,18 +24,16 @@ LOGOUT_REDIRECT_URL='posts:index'
 EMAIL_BACKEND = 'django.core.mail.backends.filebased.EmailBackend'
 # указываем директорию, в которую будут складываться файлы писем
 EMAIL_FILE_PATH = os.path.join(BASE_DIR, 'sent_emails')
-=======
->>>>>>> be3674557d6818f3f9386a83a7f90ff13d410aaa
+
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-<<<<<<< HEAD
+
 SECRET_KEY = '^9w#=vqx$l_ll-$w(z%9i-fs+y=n91d8y$q8m)x&8%*)79gyxk'
-=======
-SECRET_KEY = 'u&a^ryw3xly7(__gf%5vdtl(!9u^8sjdfgvfe&n2#h^rnr6w2r'
->>>>>>> be3674557d6818f3f9386a83a7f90ff13d410aaa
+
+
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -52,12 +50,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-<<<<<<< HEAD
     'posts',
     'users',
     'core'
-=======
->>>>>>> be3674557d6818f3f9386a83a7f90ff13d410aaa
+
 ]
 
 MIDDLEWARE = [
@@ -72,18 +68,12 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'yatube.urls'
 
-<<<<<<< HEAD
+
 TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [TEMPLATES_DIR, ],
-=======
-TEMPLATES = [
-    {
-        'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
->>>>>>> be3674557d6818f3f9386a83a7f90ff13d410aaa
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -91,6 +81,9 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'core.context_processors.year.year',
+                'core.context_processors.date_context.current_date',
+                'core.context_processors.site_stats.site_stats'
             ],
         },
     },
@@ -132,11 +125,8 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/2.2/topics/i18n/
 
-<<<<<<< HEAD
 LANGUAGE_CODE = 'ru'
-=======
-LANGUAGE_CODE = 'en-us'
->>>>>>> be3674557d6818f3f9386a83a7f90ff13d410aaa
+
 
 TIME_ZONE = 'UTC'
 
@@ -151,8 +141,5 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
-<<<<<<< HEAD
-STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
 
-=======
->>>>>>> be3674557d6818f3f9386a83a7f90ff13d410aaa
+STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)

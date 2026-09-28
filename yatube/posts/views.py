@@ -1,13 +1,36 @@
-<<<<<<< HEAD
 from django.shortcuts import render, get_object_or_404
+from django.core.paginator import Paginator
 
 from .models import Post, Group
 
 import datetime
 
+ALLOWED_PER_PAGE = (1,10,25)
+
 def index(request):
-    posts = Post.objects.order_by('-pub_date')[:10]
-    context = {'posts': posts}
+    post_list = Post.objects.all().order_by('pub_date')
+    total_posts = post_list.count()
+
+    per_page_row =  request.GET.get('per_page', 10)
+    is_all = per_page_row == "all"
+
+    if is_all:
+        per_page = min(total_posts, 1000) or 1
+    else:
+        try:
+            per_page = int(per_page_row)
+            if per_page not in ALLOWED_PER_PAGE:
+                per_page = 10
+        except(ValueError, TypeError):
+            per_page = 10 
+
+    paginator = Paginator(post_list, per_page)
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+    context = {
+        'page_obj': page_obj, 
+        'per_page': 'all' if is_all else per_page,
+    }
     return render(request, 'posts/index.html', context)
 
 
@@ -33,10 +56,3 @@ def morning_post_view(request):
     
     return render(request, 'posts/index.html', {'posts':posts})
     
-=======
-from django.shortcuts import render
-from django.http import HttpResponse
-
-def index(request):
-    return HttpResponse('<h1> Index Page </h1>')
->>>>>>> be3674557d6818f3f9386a83a7f90ff13d410aaa

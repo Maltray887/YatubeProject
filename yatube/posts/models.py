@@ -1,5 +1,4 @@
 from django.db import models
-<<<<<<< HEAD
 from django.contrib.auth import get_user_model
 
 User = get_user_model()
@@ -44,7 +43,5 @@ class Post(models.Model):
 
     def __str__(self):
         return self.text
-=======
-
 # Create your models here.
->>>>>>> be3674557d6818f3f9386a83a7f90ff13d410aaa
+
